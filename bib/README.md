@@ -1,3 +1,3 @@
 # Bibliography
 
-Include in this directory all references and additional material used in your project
+* [Refactoring guru](https://refactoring.guru/design-patterns/typescript) &rarr; Explanations and TypeScript examples
