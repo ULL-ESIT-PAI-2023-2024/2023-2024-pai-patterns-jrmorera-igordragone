@@ -19,7 +19,7 @@
 /**
  * Represents a pizza.
  */
-abstract class GoodPizza {
+abstract class Pizza {
   /**
    * Creates a pizza object
    * @param price the cost
@@ -88,9 +88,9 @@ class Hawaiian extends Flavor {
 
 /**
  * Represents a Pepperoni Calzone pizza.
- * @extends GoodPizza
+ * @extends Pizza
  */
-class RegularPizza extends GoodPizza {
+class RegularPizza extends Pizza {
   /**
    * Creates a new instance of PepperoniCalzone.
    * @param price - The price of the pizza.
@@ -113,9 +113,9 @@ class RegularPizza extends GoodPizza {
 
 /**
  * Represents a Pepperoni Calzone pizza.
- * @extends GoodPizza
+ * @extends Pizza
  */
-class Calzone extends GoodPizza {
+class Calzone extends Pizza {
   /**
    * Creates a new instance of PepperoniCalzone.
    * @param price - The price of the pizza.
@@ -140,10 +140,10 @@ class Calzone extends GoodPizza {
 // Usage example
 export function main(): void {
   console.log('\nCreating first pizza...');
-  let firstPizza = new RegularPizza(10, 'Extra cheese', new Pepperoni(2));
+  let firstPizza: Pizza = new RegularPizza(10, 'Extra cheese', new Pepperoni(2));
   firstPizza.assemble();
   console.log('\nCreating second pizza...');
-  let secondPizza = new Calzone(15, 'Extra cheese', new Hawaiian(3));
+  let secondPizza: Pizza = new Calzone(15, 'Extra cheese', new Hawaiian(3));
   secondPizza.assemble();
 }
 
