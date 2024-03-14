@@ -6,7 +6,7 @@
  * Design Patterns Presentation.
  * Programación de Interfaces Interactivas
  *
- * @file bridge_bad.ts
+ * @file observer.ts
  * @author Igor Dragone <igor.dragone.13@ull.edu.es>
  * @author José Ramóon Morera Campos  <jose.morera.27@ull.edu.es>
  * @date  12/03/2024
@@ -21,11 +21,11 @@
  * The Publisher interface declares a set of methods for managing subscribers.
  */
 interface Publisher {
-  // Attach an observer to the subject.
-  attach(subscriber: Subscriber): void;
+  // subscribe an observer to the subject.
+  subscribe(subscriber: Subscriber): void;
 
-  // Detach an observer from the subject.
-  detach(subscriber: Subscriber): void;
+  // unsubscribe an observer from the subject.
+  unsubscribe(subscriber: Subscriber): void;
 
   // Notify all observers about an event.
   notify(): void;
@@ -42,31 +42,31 @@ class AppleStore implements Publisher {
   private subscribers: Subscriber[] = [];
 
   /**
-   * Method to attach a subscriber. If the subscriber is already attached, it
-   * will return a message. Otherwise, it will attach the subscriber.
+   * Method to subscribe a subscriber. If the subscriber is already subscribeed, it
+   * will return a message. Otherwise, it will subscribe the subscriber.
    */
-  public attach(subscriber: Subscriber): void {
+  public subscribe(subscriber: Subscriber): void {
       const isSubscribed = this.subscribers.includes(subscriber);
       if (isSubscribed) {
           return console.log('Store: User is already subscribed');
       }
 
-      console.log('Store: Attached a subscriber');
+      console.log('Store: Subscribed a subscriber');
       this.subscribers.push(subscriber);
   }
 
   /**
-   * Method to detach a subscriber. If the subscriber is not attached, it will
-   * return a message. Otherwise, it will detach the subscriber.
+   * Method to unsubscribe a subscriber. If the subscriber is not subscribeed, it will
+   * return a message. Otherwise, it will unsubscribe the subscriber.
    */
-  public detach(subscriber: Subscriber): void {
+  public unsubscribe(subscriber: Subscriber): void {
       const subscriberIndex = this.subscribers.indexOf(subscriber);
       if (subscriberIndex === -1) {
           return console.log('Store: Nonexistent subscriber.');
       }
 
       this.subscribers.splice(subscriberIndex, 1);
-      console.log('Store: Detached a subscriber.');
+      console.log('Store: Unsubscribed a subscriber.');
   }
 
   /**
@@ -107,7 +107,7 @@ interface Subscriber {
 
 /**
 * Concrete Subscribers react to the updates issued by the Publisher they had been
-* attached to.
+* subscribeed to.
 */
 class AppleCustomer implements Subscriber {
   public update(publisher: Publisher): void {
@@ -120,10 +120,10 @@ class AppleCustomer implements Subscriber {
 /**
  * Client code
  */
-function main() {
+export function main() {
   let appleStore = new AppleStore();
-  let robert = new AppleCustomer();
-  appleStore.attach(robert);
+  let customer = new AppleCustomer();
+  appleStore.subscribe(customer);
 
   appleStore.launchNewPhone();
 }
