@@ -147,6 +147,4 @@ export function main(): void {
   secondPizza.assemble();
 }
 
-if (require.main === module) {
-  main();
-}
+main();

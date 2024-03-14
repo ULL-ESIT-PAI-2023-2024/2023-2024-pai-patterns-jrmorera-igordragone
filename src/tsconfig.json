@@ -19,7 +19,7 @@
     "sourceMap": true                        /* Generates corresponding '.map' file. */
   },
   "include": [
-    "**/*.ts",
+    "**/**/*.ts",
   ],
   "exclude": [
         "node_modules",
