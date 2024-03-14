@@ -236,6 +236,4 @@ export function main(): void {
   MY_CALCULATOR.executeCommand(new SubstractCommand(2));
 }
 
-if (require.main === module) {
-  main();
-}
+main();
