@@ -33,7 +33,7 @@ class Troll implements Enemy {
   public attack(): void {
     console.log('Troll attacks');
   }
-};
+}
 
 /**
  * Base decorator class. It maintains a reference to a component object and 
@@ -89,4 +89,4 @@ export function main() {
   trollWithSwordAndGun.attack();
 }
 
-main()
+main();
