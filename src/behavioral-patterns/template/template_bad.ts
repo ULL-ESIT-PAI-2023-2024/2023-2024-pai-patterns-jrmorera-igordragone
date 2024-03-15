@@ -15,10 +15,7 @@
  * @see {@link https://dofactory.com/net/template-design-pattern}
  */
 
-
-/**
- * Class that represents the cocktail named Caipirinha. It has a method to prepare it.
- */
+/// Class that represents the cocktail named Caipirinha. It has a method to prepare it.
 class Caipirinha {
   public prepare(): void {
     console.log('Take a glass')
@@ -31,9 +28,7 @@ class Caipirinha {
   }
 }
 
-/**
- * Class that represents the cocktail named Mojito. It has a method to prepare it.
- */
+/// Class that represents the cocktail named Mojito. It has a method to prepare it.
 class Mojito {
   public prepare(): void {
     console.log('Take a glass')

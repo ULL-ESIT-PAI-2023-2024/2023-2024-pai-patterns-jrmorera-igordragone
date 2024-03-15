@@ -28,21 +28,26 @@ class View {
    * if-else statements to check which shape to draw(Code smell).
    */
   drawShape() {
-      if (this.shape == Shape.CIRCLE) {
+    switch (this.shape) {
+      case Shape.CIRCLE:
         console.log('Drawing a circle');
         // Draw a circle
-      } else if (this.shape == Shape.SQUARE) {
+        break;
+      case Shape.SQUARE:
         console.log('Drawing a square');
         // Draw a square
-      } else if (this.shape == Shape.TRIANGLE) {
+        break;
+      case Shape.TRIANGLE:
         console.log('Drawing a triangle');
         // Draw a triangle
-      } else if (this.shape == Shape.RECTANGLE) {
+        break;
+      case Shape.RECTANGLE:
         console.log('Drawing a rectangle');
         // Draw a rectangle
-      } else {
-          throw new Error("Invalid shape");
-      }
+        break;
+      default:
+        throw new Error('Invalid shape');
+    }
   }
 
   /**
@@ -50,10 +55,13 @@ class View {
    * @param shape shape chosen by the user
    */
   setShape(shape: Shape) {
-      this.shape = shape;
+    this.shape = shape;
   }
 }
 
 enum Shape {
-  CIRCLE, SQUARE, TRIANGLE, RECTANGLE
+  CIRCLE,
+  SQUARE,
+  TRIANGLE,
+  RECTANGLE
 }

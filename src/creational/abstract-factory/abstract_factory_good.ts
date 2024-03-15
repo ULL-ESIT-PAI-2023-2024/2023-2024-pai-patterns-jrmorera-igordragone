@@ -131,11 +131,11 @@ class VictorianFurnitureFactory implements FurnitureFactory {
  * Client code.
  */
 export function main(): void {
-  let modernFurnitureFactory: FurnitureFactory = new ModernFurnitureFactory();
-  let modernSofa: Sofa = modernFurnitureFactory.createSofa();
-  let modernTable: Table = modernFurnitureFactory.createTable();
+  let currentFurnitureFactory: FurnitureFactory = new ModernFurnitureFactory();
+  let modernSofa: Sofa = currentFurnitureFactory.createSofa();
+  let modernTable: Table = currentFurnitureFactory.createTable();
 
-  // Now we habe matching furniture!
+  // Now we have matching furniture!
 }
 
 main();

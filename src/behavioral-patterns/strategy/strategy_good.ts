@@ -20,14 +20,10 @@
  * The Context defines the interface of interest to clients.
  */
 class View {
-  /**
-   * Usually, the Context accepts a strategy through the constructor.
-   */
+  /// Usually, the Context accepts a strategy through the constructor.
   constructor(private shape: Shape) {}
 
-  /**
-   * Usually, the Context allows replacing a Strategy object at runtime.
-   */
+  /// Usually, the Context allows replacing a Strategy object at runtime.
   public setShape(shape: Shape) {
     this.shape = shape;
   }
@@ -54,37 +50,28 @@ interface Shape {
  * Concrete Shape: Square
  */
 class Square implements Shape {
-  /**
-   * Draw a square
-   */
+  /// Draw a square
   public draw(): void {
     console.log('Drawing a square');
-    // Draw a square
+    /// Actual drawing code
   }
 }
 
-/**
- * Concrete Shape: Circle
- */
+/// Concrete Shape: Circle
 class Circle implements Shape {
-  /**
-   * Draw a circle
-   */
+  /// Draw a circle
   public draw(): void {
     console.log('Drawing a circle');
-    // Draw a circle
+    /// Actual drawing code
   }
 }
-/**
- * Concrete Shape: Triangle
- */
+
+/// Concrete Shape: Triangle
 class Triangle implements Shape {
-  /**
-   * Draw a triangle
-   */
+  /// Draw a triangle
   public draw(): void {
     console.log('Drawing a triangle');
-    // Draw a triangle
+    /// Actual drawing code
   }
 }
 
@@ -105,4 +92,3 @@ export function main() {
 }
 
 main();
-

@@ -136,6 +136,7 @@ class VictorianTableFactory extends TableFactory {
  */
 export function main(): void {
   let loungeTable = new ModernTableFactory().createTable();
+  /** Imagine some other code */
   let loungeSofa = new VictorianSofaFactory().createSofa();
   // Oh no, we messed up and did not match funiture!
 }

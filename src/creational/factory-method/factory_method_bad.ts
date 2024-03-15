@@ -14,70 +14,50 @@
  * @see {@link https://refactoring.guru/design-patterns/factory-method}
  */
 
-/**
- * Burger interface. 
- */
+/// Burger interface. 
 interface Burger {
   prepare(): void;
   cook(): void;
   box(): void;
 }
 
-/**
- * CheeseBurger class. An implementation of burger.
- */
+/// CheeseBurger class. An implementation of burger.
 class CheeseBurger implements Burger {
-  /**
-   * Prepares the burger.
-   */
+  /// Prepares the burger.
   public prepare(): void {
     console.log('Preparing the Cheese Burger');
   }
 
-  /**
-   * Cooks the burger.
-   */
+  /// Cooks the burger.
   public cook(): void {
     console.log('Cooking the Cheese Burger');
   }
 
-  /**
-   * Boxes the burger.
-   */
+  /// Boxes the burger.
   public box(): void {
     console.log('Boxing the Cheese Burger');
   }
 }
 
-/**
- * ChickenBurger class. An implementation of burger.
- */
+/// ChickenBurger class. An implementation of burger.
 class ChickenBurger implements Burger {
-  /**
-   * Prepares the burger.
-   */
+  /// Prepares the burger.
   public prepare(): void {
     console.log('Preparing the Chicken Burger');
   }
 
-  /**
-   * Cooks the burger.
-   */
+  /// Cooks the burger.
   public cook(): void {
     console.log('Cooking the Chicken Burger');
   }
 
-  /**
-   * Boxes the burger.
-   */
+  /// Boxes the burger.
   public box(): void {
     console.log('Boxing the Chicken Burger');
   }
 }
 
-/**
- * Shop that provides burgers.
- */
+/// Shop that provides burgers.
 class BurgerStore {
   /**
    * Creates a burger.
@@ -86,12 +66,15 @@ class BurgerStore {
    */
   public orderBurger(type: string): Burger {
     let burger: Burger;
-    if (type === 'cheese') {
+    switch (type) {
+      case 'cheese':
       burger = new CheeseBurger();
-    } else if (type === 'chicken') {
+      break;
+      case 'chicken':
       burger = new ChickenBurger();
-    } else {
-      throw new Error('Unknown type of burger');
+      break;
+      default:
+      throw new Error('Invalid burger type');
     }
 
     burger.prepare();

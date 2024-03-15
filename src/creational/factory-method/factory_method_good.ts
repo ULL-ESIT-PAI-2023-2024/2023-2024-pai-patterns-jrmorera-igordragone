@@ -14,96 +14,68 @@
  * @see {@link https://refactoring.guru/design-patterns/factory-method}
  */
 
-/**
- * Burger interface. 
- */
+/// Burger interface
 interface Burger {
   prepare(): void;
   cook(): void;
   box(): void;
 }
 
-/**
- * CheeseBurger class. An implementation of burger.
- */
+/// CheeseBurger class. An implementation of burger.
 class CheeseBurger implements Burger {
-  /**
-   * Prepares the burger.
-   */
+  /// Prepares the burger.
   public prepare(): void {
     console.log('Preparing the Cheese Burger');
   }
 
-  /**
-   * Cooks the burger.
-   */
+  /// Cooks the burger.
   public cook(): void {
     console.log('Cooking the Cheese Burger');
   }
 
-  /**
-   * Boxes the burger.
-   */
+  /// Boxes the burger.
   public box(): void {
     console.log('Boxing the Cheese Burger');
   }
 }
 
-/**
- * ChickenBurger class. An implementation of burger.
- */
+/// ChickenBurger class. An implementation of burger.
 class ChickenBurger implements Burger {
-  /**
-   * Prepares the burger.
-   */
+  /// Prepares the burger.
   public prepare(): void {
     console.log('Preparing the Chicken Burger');
   }
 
-  /**
-   * Cooks the burger.
-   */
+  /// Cooks the burger.
   public cook(): void {
     console.log('Cooking the Chicken Burger');
   }
 
-  /**
-   * Boxes the burger.
-   */
+  /// Boxes the burger.
   public box(): void {
     console.log('Boxing the Chicken Burger');
   }
 }
 
-/**
- * BigMac class. An implementation of burger.
- */
+/// BigMac class. An implementation of burger.
 class BigMac implements Burger {
-  /**
-   * Prepares the burger.
-   */
+  /// Prepares the burger.
   public prepare(): void {
     console.log('Preparing the BigMac Burger');
   }
 
-  /**
-   * Cooks the burger.
-   */
+  /// Cooks the burger.
   public cook(): void {
     console.log('Cooking the BigMac Burger');
   }
 
-  /**
-   * Boxes the burger.
-   */
+  /// Boxes the burger.
   public box(): void {
     console.log('Boxing the BigMac Burger');
   }
 }
 
-/**
- * Shop that provides burgers.
- */
+/// Shop that provides burgers
 abstract class BurgerStore {
   /**
    * Creates a burger.
@@ -127,37 +99,35 @@ abstract class BurgerStore {
   protected abstract createBurger(type: string): Burger;
 }
 
-/**
- * An implementation of a burguer store
- */
+/// An implementation of a burguer store
 class DeburgerKing extends BurgerStore {
   protected createBurger(type: string): Burger {
-    if (type === 'cheese') {
+    switch (type) {
+      case 'cheese':
       return new CheeseBurger();
-    } else if (type === 'chicken') {
+      case 'chicken':
       return new ChickenBurger();
+      default:
+      throw new Error('Invalid burger type');
     }
-    throw new Error('Invalid burger type');
   }
 }
 
-/**
- * An implementation of a burguer store
- */
+/// An implementation of a burguer store
 class McDonalds extends BurgerStore {
   protected createBurger(type: string): Burger {
-    if (type === 'bigmac') {
+    switch (type) {
+      case 'bigmac':
       return new BigMac();
-    } else if (type === 'chicken') {
+      case 'chicken':
       return new ChickenBurger();
+      default:
+      throw new Error('Invalid burger type');
     }
-    throw new Error('Invalid burger type');
   }
 }
 
-/**
- * Client code
- */
+/// Client code
 export function main(): void {
   let firstFranchise: BurgerStore = new DeburgerKing();
   let firstBurger: Burger = firstFranchise.orderBurger('cheese');

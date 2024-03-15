@@ -19,17 +19,15 @@
 /**
  * The Abstract Class defines a template method that contains a skeleton of some
  * algorithm.
- * 
+ *
  * Concrete subclasses should implement these operations, but leave the template
  * method itself intact.
- * 
- * In this example, the AbstractClass defines the 
+ *
+ * In this example, the AbstractClass defines the
  * algorithm for preparing a cocktail. The algorithm is the same for all cocktails
  */
 abstract class Cocktail {
-  /**
-   * The template method defines the skeleton of an algorithm.
-   */
+  /// The template method defines the skeleton of an algorithm.
   public prepare(): void {
     this.addGlass();
     this.addIce();
@@ -40,9 +38,7 @@ abstract class Cocktail {
     this.addStraw();
   }
 
-  /**
-   * These operations already have implementations.
-   */
+  /// These operations already have implementations.
   protected addGlass(): void {
     console.log('Adding a glass');
   }
@@ -50,7 +46,7 @@ abstract class Cocktail {
   protected addIce(): void {
     console.log('Adding ice');
   }
-  
+
   protected stir(): void {
     console.log('Stirring');
   }
@@ -65,61 +61,27 @@ abstract class Cocktail {
   protected abstract addAlcohol(): void;
   protected abstract addFruit(): void;
   protected abstract addExtra(): void;
-
 }
 
 /**
-* Concrete classes have to implement all abstract operations of the base class.
-* They can also override some operations with a default implementation.
-* In this example, the ConcreteClass is a Caipirinha.
-*/
+ * Concrete classes have to implement all abstract operations of the base class.
+ * They can also override some operations with a default implementation.
+ * In this example, the ConcreteClass is a Caipirinha.
+ */
 class Caipirinha extends Cocktail {
-  /**
-   * Here we override the addAlcohol
-   */
+  /// Here we override the addAlcohol
   protected addAlcohol(): void {
     console.log('Adding cachaca');
   }
 
-  /**
-   * Here we override the addFruit
-   */
+  /// Here we override the addFruit
   protected addFruit(): void {
     console.log('Adding lime');
   }
 
-  /**
-   * Here we override the addExtra
-   */
+  /// Here we override the addExtra
   protected addExtra(): void {
     console.log('Adding sugar');
-  }
-}
-
-/**
-* In this example, the ConcreteClass is a Mojito.
-*/
-class Mojito extends Cocktail {
-  /**
-   * Here we override the addAlcohol
-   */
-  protected addAlcohol(): void {
-    console.log('Adding rum');
-  }
-
-  /**
-   * Here we override the addFruit
-   */
-  protected addFruit(): void {
-    console.log('Adding lime');
-  }
-
-  /**
-   * Here we override the addExtra
-   */
-  protected addExtra(): void {
-    console.log('Adding sugar');
-    console.log('Adding mint');
   }
 }
 

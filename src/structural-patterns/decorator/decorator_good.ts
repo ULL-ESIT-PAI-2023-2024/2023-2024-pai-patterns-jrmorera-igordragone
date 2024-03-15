@@ -16,68 +16,51 @@
  * @see {@link https://dofactory.com/net/bridge-design-pattern}
  */
 
-/**
- * Enemy Interface. Defines operations that can be altered by decorators.
- */
+// Enemy Interface. Defines operations that can be altered by decorators.
 interface Enemy {
   attack(): void;
-};
+}
+;
 
-/**
- * Concrete enemy. It provides a default implementation for the operations.
- */
+// Concrete enemy. It provides a default implementation for the operations.
 class Troll implements Enemy {
-  /**
-   * Attacks the player.
-   */
+  // Attacks the player.
   public attack(): void {
     console.log('Troll attacks');
   }
 }
 
 /**
- * Base decorator class. It maintains a reference to a component object and 
+ * Base decorator class. It maintains a reference to a component object and
  * defines an interface that conforms to the component's interface.
  */
 abstract class EnemyDecorator implements Enemy {
   constructor(protected enemy: Enemy) {}
 
-  /**
-   * The decorator delegates all work to the wrapped component.
-   */
+  // The decorator delegates all work to the wrapped component.
   public attack(): void {
     this.enemy.attack();
   }
 };
 
-/**
- * Concrete decorator. It adds new responsibilities to the component.
- */
+// Concrete decorator. It adds new responsibilities to the component.
 class Sword extends EnemyDecorator {
-  /**
-   * Adds a sword to the enemy.
-   */
+  // Adds a sword to the enemy.
   public attack(): void {
     super.attack();
     console.log(' with a sword!');
   }
 };
 
-/**
- * Concrete decorator. It adds new responsibilities to the component.
- */
+// Concrete decorator. It adds new responsibilities to the component.
 class Gun extends EnemyDecorator {
-  /**
-   * Adds a gun to the enemy.
-   */
+  // Adds a gun to the enemy.
   public attack(): void {
     super.attack();
     console.log(' with a gun!');
   }
 };
-/**
- * Client code
- */
+// Client code
 export function main() {
   const troll: Enemy = new Troll();
   troll.attack();

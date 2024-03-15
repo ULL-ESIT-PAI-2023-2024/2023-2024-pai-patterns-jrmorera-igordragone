@@ -15,9 +15,7 @@
  * @see {@link https://dofactory.com/net/bridge-design-pattern}
  */
 
-/**
- * Represents a pizza.
- */
+/** Represents a pizza **/
 abstract class Pizza {
   /**
    * Creates a pizza object
@@ -46,9 +44,7 @@ class PepperoniPizza extends Pizza {
     super(price, topping);
   }
 
-  /**
-   * Assembles the Pepperoni Pizza.
-   */
+  /// Assembles the Pepperoni Pizza.
   public assemble(): void {
     console.log('Preparing dough');
     console.log(`Adding toppings: ${this.topping}`);
@@ -66,9 +62,7 @@ class HawaiianPizza extends Pizza {
     super(price, topping);
   }
 
-  /**
-   * Assembles the Hawaiian pizza.
-   */
+  /// Assembles the Hawaiian pizza.
   public assemble(): void {
     console.log('Preparing dough');
     console.log(`Adding toppings: ${this.topping}`);
@@ -91,9 +85,7 @@ class PepperoniCalzone extends Pizza {
     super(price, topping);
   }
 
-  /**
-   * Assembles the Pepperoni Calzone pizza.
-   */
+  /// Assembles the Pepperoni Calzone pizza.
   public assemble(): void {
     console.log('Preparing dough');
     console.log(`Adding toppings: ${this.topping}`);
