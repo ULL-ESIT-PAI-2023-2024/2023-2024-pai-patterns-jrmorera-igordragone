@@ -15,127 +15,91 @@
  * @see {@link https://www.youtube.com/watch?v=CVlpjFJN17U}
  */
 
-/**
- * Sofa interface. 
- */
-interface Sofa {
-  getNumberOfSeats(): number;
+/// SUV interface 
+interface SUV {
+  getHorsepower(): number;
 }
 
-/**
- * Table interface. 
- */
-interface Table {
-  getSurface(): number;
+/// Sedan interface
+interface Sedan {
+  getCargo(): number;
 }
 
-/**
- * ModernSofa class. An implementation of sofa.
- */
-class ModernSofa implements Sofa {
-  /**
-   * Returns the number of seats of the sofa.
-   */
-  public getNumberOfSeats(): number {
-    return 3;
+/// PeugeotSUV class. An implementation of SUV.
+class PuegeotSUV implements SUV {
+  /// Get the engine power
+  public getHorsepower(): number {
+    return 120;
   }
 }
 
-/**
- * ModernTable class. An implementation of table.
- */
-class ModernTable implements Table {
-  /**
-   * Returns the surface of the table.
-   */
-  public getSurface(): number {
-    return 1.5;
+/// PeugeotSedan class. An implementation of sedan.
+class PuegeotSedan implements Sedan {
+  /// Get the cargo capacity in liters
+  public getCargo(): number {
+    return 150;
   }
 }
 
-/**
- * VictorianSofa class. An implementation of sofa.
- */
-class VictorianSofa implements Sofa {
-  /**
-   * Returns the number of seats of the sofa.
-   */
-  public getNumberOfSeats(): number {
-    return 4;
+/// PorscheSUV class. An implementation of SUV.
+class PorscheSUV implements SUV {
+  /// Get the engine power
+  public getHorsepower(): number {
+    return 300;
   }
 }
 
-/**
- * VictorianTable class. An implementation of table.
- */
-class VictorianTable implements Table {
-  /**
-   * Returns the surface of the table.
-   */
-  public getSurface(): number {
-    return 2;
+/// PorscheSedan class. An implementation of sedan.
+class PorscheSedan implements Sedan {
+  /// Get the cargo capacity in liters
+  public getCargo(): number {
+    return 100;
   }
 }
 
-/**
- * Abstract factory interface.
- */
-interface FurnitureFactory {
-  createSofa(): Sofa;
-  createTable(): Table;
+/// Abstract factory interface.
+interface CarFactory {
+  createSedan(): Sedan;
+  createSUV(): SUV;
 }
 
-/**
- * ModernFurnitureFactory class. An implementation of furniture factory.
- */
-class ModernFurnitureFactory implements FurnitureFactory {
-  /**
-   * Creates a modern sofa.
-   */
-  public createSofa(): Sofa {
-    console.log('Creating a modern sofa');
-    return new ModernSofa();
+/// PeugeotCarFactory class. An implementation of carFactory.
+class PeugeotCarFactory implements CarFactory {
+  /// Create a Peugeot SUV
+  public createSUV(): SUV {
+    console.log('Creating a Peugeot SUV');
+    return new PuegeotSUV();
   }
 
-  /**
-   * Creates a modern table.
-   */
-  public createTable(): Table {
-    console.log('Creating a modern table');
-    return new ModernTable();
+  /// Create Peugeot Sedan
+  public createSedan(): Sedan {
+    console.log('Creating a Peugeot Sedan');
+    return new PuegeotSedan();
   }
 }
 
-/**
- * VictorianFurnitureFactory class. An implementation of furniture factory.
- */
-class VictorianFurnitureFactory implements FurnitureFactory {
-  /**
-   * Creates a victorian sofa.
-   */
-  public createSofa(): Sofa {
-    console.log('Creating a victorian sofa');
-    return new VictorianSofa();
+/// PorscheCarFactory class. An implementation of carFactory.
+class PorscheCarFactory implements CarFactory {
+  /// Create a Porsche SUV
+  public createSUV(): SUV {
+    console.log('Creating a Porsche SUV');
+    return new PorscheSUV();
   }
 
-  /**
-   * Creates a victorian table.
-   */
-  public createTable(): Table {
-    console.log('Creating a victorian table');
-    return new VictorianTable();
+  /// Create Porsche Sedan
+  public createSedan(): Sedan {
+    console.log('Creating a Porsche Sedan');
+    return new PorscheSedan();
   }
 }
 
-/**
- * Client code.
- */
+/// Client code
 export function main(): void {
-  let currentFurnitureFactory: FurnitureFactory = new ModernFurnitureFactory();
-  let modernSofa: Sofa = currentFurnitureFactory.createSofa();
-  let modernTable: Table = currentFurnitureFactory.createTable();
+  let currentCarFactory: PeugeotCarFactory = new PeugeotCarFactory();
+  let mySUV: SUV = currentCarFactory.createSUV();
+  let mySedan: Sedan = currentCarFactory.createSedan();
 
-  // Now we have matching furniture!
+  // Now we have matching cars!
 }
 
 main();
