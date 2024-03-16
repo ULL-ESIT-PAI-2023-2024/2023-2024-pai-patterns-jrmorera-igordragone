@@ -26,7 +26,7 @@ interface Sedan {
 }
 
 /// PeugeotSUV class. An implementation of SUV.
-class PuegeotSUV implements SUV {
+class PeugeotSUV implements SUV {
   /// Get the engine power
   public getHorsepower(): number {
     return 120;
@@ -34,7 +34,7 @@ class PuegeotSUV implements SUV {
 }
 
 /// PeugeotSedan class. An implementation of sedan.
-class PuegeotSedan implements Sedan {
+class PeugeotSedan implements Sedan {
   /// Get the cargo capacity in liters
   public getCargo(): number {
     return 150;
@@ -68,13 +68,13 @@ class PeugeotCarFactory implements CarFactory {
   /// Create a Peugeot SUV
   public createSUV(): SUV {
     console.log('Creating a Peugeot SUV');
-    return new PuegeotSUV();
+    return new PeugeotSUV();
   }
 
   /// Create Peugeot Sedan
   public createSedan(): Sedan {
     console.log('Creating a Peugeot Sedan');
-    return new PuegeotSedan();
+    return new PeugeotSedan();
   }
 }
 
