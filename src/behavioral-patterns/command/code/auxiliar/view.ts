@@ -25,7 +25,7 @@ export class View {
    */
   constructor() {
     this.canvas = document.createElement('CANVAS') as HTMLCanvasElement;
-    const MARGIN = 120;  // Padding of the canvas
+    const MARGIN = 150;  // Padding of the canvas
     this.canvas.width = window.innerWidth - MARGIN;
     this.canvas.height = window.innerHeight - MARGIN;
     this.canvas.style.border = '3px solid black';

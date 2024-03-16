@@ -29,9 +29,9 @@ export class RandomShapeGenerator {
    */
   public getRandomRectangle(
       coordinates: Coordinates2D = this.getRandomCoordinates(), style: ShapeStyle = this.getRandomStyle()) {
-    const MAX_WIDTH = 100;
-    const MAX_HEIGHT = 100;
-    const MIN_SIZE = 40;
+    const MAX_WIDTH = 120;
+    const MAX_HEIGHT = 120;
+    const MIN_SIZE = 50;
     const width = MIN_SIZE + this.getRandomNumber() * MAX_WIDTH;
     const height = MIN_SIZE + this.getRandomNumber() * MAX_HEIGHT;
     return new Rectangle(width, height, coordinates, style);
@@ -44,8 +44,8 @@ export class RandomShapeGenerator {
    */
   public getRandomCircle(
       coordinates: Coordinates2D = this.getRandomCoordinates(), style: ShapeStyle = this.getRandomStyle()) {
-    const MAX_RADIUS = 40;
-    const MIN_RADIUS = 20;
+    const MAX_RADIUS = 50;
+    const MIN_RADIUS = 25;
     const radius = MIN_RADIUS + this.getRandomNumber() * MAX_RADIUS;
     return new Circle(radius, coordinates, style);
   }
@@ -57,9 +57,9 @@ export class RandomShapeGenerator {
    */
   public getRandomTriangle(
       coordinates: Coordinates2D = this.getRandomCoordinates(), style: ShapeStyle = this.getRandomStyle()) {
-    const MAX_WIDTH = 100;
-    const MAX_HEIGHT = 100;
-    const MIN_SIZE = 40;
+    const MAX_WIDTH = 120;
+    const MAX_HEIGHT = 120;
+    const MIN_SIZE = 50;
     const width = MIN_SIZE + this.getRandomNumber() * MAX_WIDTH;
     const height = MIN_SIZE + this.getRandomNumber() * MAX_HEIGHT;
     return new Triangle(width, height, coordinates, style);
