@@ -20,12 +20,16 @@
  * The Context defines the interface of interest to clients.
  */
 class View {
-  /// Usually, the Context accepts a strategy through the constructor.
-  constructor(private shape: Shape) {}
+  /**
+   * Usually, the Context accepts a strategy through the constructor.
+   */
+  constructor(private drawingStrategy: ShapeDrawingStrategy) {}
 
-  /// Usually, the Context allows replacing a Strategy object at runtime.
-  public setShape(shape: Shape) {
-    this.shape = shape;
+  /**
+   * Usually, the Context allows replacing a Strategy object at runtime.
+   */
+  public setShape(drawingStrategy: ShapeDrawingStrategy) {
+    this.drawingStrategy = drawingStrategy;
   }
 
   /**
@@ -34,7 +38,7 @@ class View {
    */
   public drawShapes(): void {
     console.log('Context: Drawings shapes (not sure how it will do it)');
-    this.shape.draw();
+    this.drawingStrategy.draw();
   }
 }
 
@@ -42,36 +46,45 @@ class View {
  * Strategy interface. The Shape interface declares operations common to all supported versions of
  * some algorithm.
  */
-interface Shape {
+interface ShapeDrawingStrategy {
   draw(): void;
 }
 
 /**
  * Concrete Shape: Square
  */
-class Square implements Shape {
-  /// Draw a square
+class SquareDrawingStrategy implements ShapeDrawingStrategy {
+  /**
+   * Draw a square
+   */
   public draw(): void {
     console.log('Drawing a square');
-    /// Actual drawing code
+    // Draw a square
   }
 }
 
-/// Concrete Shape: Circle
-class Circle implements Shape {
-  /// Draw a circle
+/**
+ * Concrete Shape: Circle
+ */
+class CircleDrawingStrategy implements ShapeDrawingStrategy {
+  /**
+   * Draw a circle
+   */
   public draw(): void {
     console.log('Drawing a circle');
-    /// Actual drawing code
+    // Draw a circle
   }
 }
-
-/// Concrete Shape: Triangle
-class Triangle implements Shape {
-  /// Draw a triangle
+/**
+ * Concrete Shape: Triangle
+ */
+class TriangleDrawingStrategy implements ShapeDrawingStrategy {
+  /**
+   * Draw a triangle
+   */
   public draw(): void {
     console.log('Drawing a triangle');
-    /// Actual drawing code
+    // Draw a triangle
   }
 }
 
@@ -81,14 +94,13 @@ class Triangle implements Shape {
  * the right choice.
  */
 export function main() {
-  const view = new View(new Circle());
+  const view = new View(new CircleDrawingStrategy());
   view.drawShapes();
-  view.setShape(new Square());
+  view.setShape(new SquareDrawingStrategy());
   view.drawShapes();
-  view.setShape(new Triangle());
+  view.setShape(new TriangleDrawingStrategy());
   view.drawShapes();
-  view.setShape(new Circle());
-  view.drawShapes();
-}
+};
 
 main();
+

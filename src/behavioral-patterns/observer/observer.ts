@@ -112,8 +112,8 @@ class AppleCustomer implements Subscriber {
 /// Client code
 export function main() {
   let appleStore = new AppleStore();
-  let customer = new AppleCustomer();
-  appleStore.subscribe(customer);
+  let robert = new AppleCustomer();
+  appleStore.subscribe(robert);
 
   appleStore.launchNewPhone();
 }
